@@ -14,7 +14,7 @@ class Database extends PDO
         }
         catch(PDOException $exception)
         {
-            echo 'An error has occured...';
+            echo 'Connection failed - see admin for more info.';
         }
     }
     /**
