@@ -1,8 +1,9 @@
 <?php
 require 'Database.php';
-ini_set("memory_limit","800M");
+ini_set("memory_limit","800M"); // needed if outputing entire dataset to screen.
 /**
- * Obtain the most re-tweeted tweet from a given dataset...
+ * Obtain the most re-tweeted tweet from a given dataset.
+ * TODO: Perhaps add addtional features for retweets.
  **/
 class Retweet
 {
@@ -17,27 +18,22 @@ class Retweet
     {
         //cosmos holds the database rows in an array - thus it's an array of arrays
         $cosmos = $this->db->select('SELECT * FROM cosmos');
-        
         $retweets = array();
-
+        
         foreach ($cosmos as $row)
         {
             if (preg_match("/RT/", $row['tweet_text']))
             {
                 array_push($retweets, $row['tweet_text']);
-                //echo "<pre>".print_r($row['tweet_text'],true)."</pre>";
             }
         }
-
-        foreach ($retweets as $tweet)
-        {
-            // code...
-        }
-        echo "<pre>".print_r($retweets)."</pre>";    
+        return array_keys(array_count_values($retweets), max(array_count_values($retweets)));
     }
 }
 
 $db = new Database();
 $rt = new Retweet($db);
 
-print $rt->most_retweet();
+Echo "<pre>";
+print_r($rt->most_retweet());
+Echo "</pre>";
