@@ -1,3 +1,5 @@
 #Group 7 - Visualisation
 
-This is where we will store all the implementation work.
+Visualisation of data that has been scraped from social networking sites via
+cosmos.
+
