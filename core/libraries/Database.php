@@ -11,7 +11,6 @@ class Database extends PDO
         try
         {
             parent::__construct( $this->db_config['dns'], $this->db_config['username'], $this->db_config['password'] );
-            echo 'It worked jim!';
         }
         catch(PDOException $exception)
         {
