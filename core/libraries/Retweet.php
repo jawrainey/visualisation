@@ -35,14 +35,13 @@ class Retweet
     }
 
     /**
-     * Extract username from most popular re-tweet
-     * (Could be used to extract name from any given tweet)
+     * Extract twitter username from text
      *
      * @return username from twitter tweet.
      */
-    public function getName()
+    public function getName($text)
     {
-        preg_match('/@([A-Za-z0-9_]{1,15})/', $this->most_retweet(), $matches);
+        preg_match('/@([A-Za-z0-9_]{1,15})/', $text, $matches);
         return $matches[0];
     }
 }
