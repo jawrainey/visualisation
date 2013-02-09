@@ -2,9 +2,8 @@
 require 'Database.php';
 ini_set("memory_limit","800M"); // needed if outputing entire dataset to screen.
 /**
- * Obtain the most re-tweeted tweet from a given dataset.
- * TODO: Perhaps add addtional features for retweets.
- **/
+* Obtain the most re-tweeted tweet from a given dataset.
+*/
 class Retweet
 {
     public $db;
