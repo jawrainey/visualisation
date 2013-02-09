@@ -35,13 +35,13 @@ class Retweet
     }
 
     /**
-     * Extract twitter username from text
+     * Extract twitter username from tweet.
      *
      * @return username from twitter tweet.
      */
-    public function getName($text)
+    public function getName($tweet)
     {
-        preg_match('/@([A-Za-z0-9_]{1,15})/', $text, $matches);
+        preg_match('/@([A-Za-z0-9_]{1,15})/', $tweet, $matches);
         return $matches[0];
     }
 }
