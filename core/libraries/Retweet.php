@@ -43,6 +43,9 @@ class Retweet
         {
             if (preg_match('/'.$mostrt.'/', $row['tweet_text']))
             {
+                echo "<pre>";
+                echo $row;
+                echo "</pre>";
                 array_push($retweets, array('datetime' => date('Y-m-d H:i:s',$row['timestamp']), 'location' => $row['location']));
             }
         }   
