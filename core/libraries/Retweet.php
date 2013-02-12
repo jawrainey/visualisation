@@ -14,60 +14,50 @@ class Retweet
     /**
      * Most re-tweeted tweet
      *
-     * @return the most repeated sentence in a given column.
+     * @return the date/time, and location of all the most repeated sentences 
      */
     public function most_retweet($hashtags = False)
     {
-        //cosmos holds the database rows in an array - thus it's an array of arrays
-        $cosmos = $this->db->select('SELECT * FROM cosmos');
+        $cosmos   = $this->db->select('SELECT * FROM cosmos');
         $retweets = array();
+        $rts      = array();
         
+        //creates an array of ALL retweets.
         foreach ($cosmos as $row)
         {
             if (preg_match("/RT/", $row['tweet_text']))
             {
-                array_push($retweets, $row['tweet_text']);
+                array_push($rts, $row['tweet_text']);
             }
         }
-        return array_keys(array_count_values($retweets), max(array_count_values($retweets)))[0];
-    }
 
-    /**
-     * Extract twitter username from tweet.
-     *
-     * @return username from twitter tweet.
-     */
-    public function getName($tweet)
-    {
-        preg_match('/@([A-Za-z0-9_]{1,15})/', call_user_func($tweet), $username);
-        return $username[0];
-    }
-
-    /*
-     * 
-     *
-     * @return ...?
-     */    
-    public function graphit()
-    {
-        $retweets = array();
-        $cosmos = $this->db->select('SELECT * FROM cosmos');
-        $mostrt = $this->most_retweet();
-
+        //this is the most repeated sentence in the given field above.
+        $mostrt = array_keys(array_count_values($rts), max(array_count_values($rts)))[0];
+        
+        //Filter's the array 
+        //Not the best routine as:
+        //1. Second database connection is made.
+        //2. Could push the same rows in the above foreach, then extract the 
+        //mostrt from this foreach - reducing sample space.
         foreach ($cosmos as $row)
         {
             if (preg_match('/'.$mostrt.'/', $row['tweet_text']))
             {
                 array_push($retweets, array('datetime' => date('Y-m-d H:i:s',$row['timestamp']), 'location' => $row['location']));
             }
-        }
-
-        $origin = $retweets[0]['datetime'];
+        }   
         
-        foreach ($retweets as $array)
+        $origin = new DateTime($retweets[0]['datetime']);
+        
+        foreach ($retweets as &$array)
         {
-            $next_datetime = $array[0][0];
-            $res = $next_datetime - $origin;
+            //current retweet datetime minus origin datetime
+            //This is probably not the most efficent solution:
+            //(creating two DateTime objects just to calculate the difference.)
+            $array['datetime'] = $origin->diff(new DateTime($array['datetime']))->format('%h hours, %i minutes, %s seconds');
         }
+        
+        return $retweets;
     }
+
 }
