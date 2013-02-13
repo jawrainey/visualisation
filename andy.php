@@ -8,10 +8,9 @@
 <!--Load the AJAX API-->
 <script type="text/javascript" src='https://www.google.com/jsapi?autoload={"modules":[{"name":"visualization","version":"1","packages":["corechart","table"]}]}'></script>
 
-<script type="text/javascript">
+<script>
 // Set a callback to run when the Google Visualization API is loaded.
 google.setOnLoadCallback(drawChart);
-
 
 // Callback that creates and populates a data table,
 // instantiates the pie chart, passes in the data and
@@ -43,43 +42,49 @@ function drawChart()
     var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
     chart.draw(data, options);
 }
+    hs.graphicsDir = '';
+    hs.align = 'right';
+    hs.transitions = ['expand', 'crossfade'];
+    hs.outlineType = 'rounded-white';
+    hs.fadeInOut = true;
+    hs.dimmingOpacity = 0.75;
 
-hs.graphicsDir = '';
-hs.align = 'right';
-hs.transitions = ['expand', 'crossfade'];
-hs.outlineType = 'rounded-white';
-hs.fadeInOut = true;
-hs.dimmingOpacity = 0.75;
+    // The Restraining Box
+    hs.useBox = true;
+    hs.width = 700;
+    hs.height = 500;
 
-// The Restraining Box
-hs.useBox = true;
-hs.width = 700;
-hs.height = 500;
-
-function myfunction(text) {confirm(text)};
+    function myfunction(text) {confirm(text)};
+</script>
 </head>
-
   <body>
-    <div id="chart_div" style="width:400; height:300"></div>
-
-	<form action="" method="post">
-	<input type="button" onclick="javascript:history.go(-1)" value="Back">
-	<input name="Save" type="submit" class="button" value="Save" onclick="myfunction('Do you want to save it?')">
-	</form>
-		
-	<div class="highslide-gallery">
-		<a href="" class="highslide" onclick="return hs.expand(this)"><img src="" alt="Chart 2"title="Click to enlarge" /></a>
-	<div class="highslide-caption">Second Chart</div>
-		<a href="" class="highslide" onclick="return hs.expand(this)"><img src="" alt="Chart 3"title="Click to enlarge" /></a>
-	<div class="highslide-caption">Third Chart</div>
-		<a href="" class="highslide" onclick="return hs.expand(this)"><img src="" alt="Chart 4"title="Click to enlarge" /></a>
-	<div class="highslide-caption">Fourth Chart</div>
-		<a href="" class="highslide" onclick="return hs.expand(this)"><img src="" alt="Chart 5"title="Click to enlarge" /></a>
-	<div class="highslide-caption"> Fifth Chart</div>
-		<a href="" class="highslide" onclick="return hs.expand(this)"><img src="" alt="Chart 6"title="Click to enlarge" /></a>
-	<div class="highslide-caption">Sixth Chart</div>
-		<a href="" class="highslide" onclick="return hs.expand(this)"><img src="" alt="Chart 7"title="Click to enlarge" /></a>
-	<div class="highslide-caption">Seventh Chart</div>
-	</div>
+    <h1>Simple example chart - Andrew</h1>
+    <style> chart_div {margin: 0 auto; }</style>
+    <div id="chart_div"></div>
+	<style>
+      #left { margin-left: 15%; float: left; }
+      #right { margin-right: 15%; float: right; }
+      img { width: 200; height: 100;}
+    </style>  
+    <div id="left">
+      <p>Pie chart</p>
+      <a href="#"><img src="http://donsmaps.com/clickphotos/dolnivi200x100.jpg"></img></a>
+      <p>Another chart</p>
+      <a href="#"><img src="http://donsmaps.com/clickphotos/dolnivi200x100.jpg"></img></a>
+      <p>Another chart</p>
+      <a href="#"><img src="http://donsmaps.com/clickphotos/dolnivi200x100.jpg"></img></a>
+    </div>
+    <div id="right">
+      <p>Bar Chart</p>
+      <a href="#"><img src="http://donsmaps.com/clickphotos/dolnivi200x100.jpg"></img></a>
+      <p>Another chart</p>
+      <a href="#"><img src="http://donsmaps.com/clickphotos/dolnivi200x100.jpg"></img></a>
+      <p>Another chart</p>
+      <a href="#"><img src="http://donsmaps.com/clickphotos/dolnivi200x100.jpg"></img></a>
+    </div>
+    <form action="" method="post">
+      <input type="button" onclick="javascript:history.go(-1)" value="Back">
+      <input name="Save" type="submit" class="button" value="Save" onclick="myfunction('Do you want to save it?')">
+    </form>
   </body>
 </html>
