@@ -4,7 +4,7 @@
 */
 class Retweet
 {
-    public $db;
+    private $db;
 
     function __construct($db)
     {

@@ -1,8 +1,8 @@
-<?php
+i<?php
 
 public class Maps
 {
-    $db;
+    private $db;
 
     public function __construct($db)
     {
