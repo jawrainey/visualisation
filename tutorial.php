@@ -27,7 +27,7 @@ $cosmos = $database->select("SELECT * FROM cosmos");
 //"location" => belfast
 // The syntax used is just like java - class.function(parameter)
 
-//Now cosmos stores all the data in our database we can do some logic on it, 
+//Now $cosmos stores all the data in our database we can do some logic on it, 
 //such as displaying each row to the user.
 //Note: This may take a few seconds to run.
 foreach ($cosmos as $row)
