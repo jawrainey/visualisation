@@ -16,7 +16,7 @@ $db = new Database();
 $rt = new Retweet($db);
 
 ?>
-<script> var dataa = <?php echo json_encode($rt->most_retweet()); ?>  </script>
+<script> var data = <?php echo json_encode($rt->most_retweet()); ?>  </script>
 <script src="./js/libs/d3.js"></script>
 <script src="./js/libs/jquery.js"></script>
 

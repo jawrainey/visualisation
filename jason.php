@@ -60,29 +60,20 @@ function initMap()
                               }
                               });
     <?php
-//    ini_set("memory_limit","800M"); // needed if outputing entire dataset to screen.
-//    require 'core/libraries/Database.php';
-//    
-//    $db = new Database();
-//    $cosmos = $db->select("SELECT * FROM cosmos WHERE `latitude` AND `location` != '-'");
-//    
-//    foreach ($cosmos as $row)
-//    {
-//        $name = $row['tweet_id'];
-//        $lat  = $row['latitude'];
-//        $long = $row['longitude'];
-//        $desc = $row['location'];
-//        echo ("addMarker($lat, $long,'<b>$name</b><br/>$desc');\n");
-//    }
+    ini_set("memory_limit","800M"); // needed if outputing entire dataset to screen.
+    require 'core/libraries/Database.php';
+    
+    $db = new Database();
+    $cosmos = $db->select("SELECT * FROM cosmos WHERE `latitude` AND `location` != '-'");
+    
+    foreach ($cosmos as $row)
+    {
+        $lat  = $row['latitude'];
+        $long = $row['longitude'];
+        echo ("addMarker($lat, $long);");
+    }
     
     ?>
-    
-    addMarker(51.514980, -0.144328,'<b>100 Club</b><br/>Oxford Street, London  W1&lt;br/&gt;3 Nov 2010 : Buster Shuffle&lt;br/&gt;');
-    addMarker(51.521710, -0.071737,'<b>93 Feet East</b><br/>150 Brick Lane, London  E1 6RU&lt;br/&gt;7 Dec 2010 : Jenny &amp; Johnny&lt;br/&gt;');
-    addMarker(51.511010, -0.120140,'<b>Adelphi Theatre</b><br/>The Strand, London  WC2E 7NA&lt;br/&gt;11 Oct 2010 : Love Never Dies');
-    addMarker(51.521620, -0.143394,'<b>Albany, The</b><br/>240 Gt. Portland Street, London  W1W 5QU');
-    addMarker(51.513170, -0.117503,'<b>Aldwych Theatre</b><br/>Aldwych, London  WC2B 4DF&lt;br/&gt;11 Oct 2010 : Dirty Dancing');
-    addMarker(51.596490, -0.109514,'<b>Alexandra Palace</b><br/>Wood Green, London  N22&lt;br/&gt;30 Oct 2010 : Lynx All-Nighter');
     
     center = bounds.getCenter();
     map.fitBounds(bounds);
