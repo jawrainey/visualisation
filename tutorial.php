@@ -38,3 +38,10 @@ foreach ($cosmos as $row)
     print_r($row);
     echo "</pre>";
 }
+
+//I have created a class for each group to use, and you should put your logic 
+//into it, then create an instance of that class as above.
+//You could then call a specific function, and store thoses results to 
+//a javascript object, such as:
+?>
+<script> var data = <?php echo json_encode($rt->most_retweet()); ?>  </script>
