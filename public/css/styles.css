@@ -1,0 +1,441 @@
+/*-------------------- $RESET ----------------------------*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+article, aside, details, footer, header, menu,
+nav, section, label, input, pre  {
+    display: block;
+}
+
+ol, ul, li { list-style: none; }
+
+/*-------------------- $FONT AWESOME -------------------*/
+
+@font-face {
+    font-family: "FontAwesome";
+    src: url('../fonts/awesome/fontawesome-webfont.eot');
+    src: url('../fonts/awesome/fontawesome-webfont.eot?#iefix') format('eot'),
+         url('../fonts/awesome/fontawesome-webfont.woff') format('woff'),
+         url('../fonts/awesome/fontawesome-webfont.ttf') format('truetype'),
+         url('../fonts/awesome/fontawesome-webfont.svg#FontAwesome') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon-"]:before, [class*=" icon-"]:before {
+    font-family: FontAwesome;
+    font-weight: normal;
+    font-style: normal;
+    display: inline-block;
+    text-decoration: inherit;
+}
+
+a [class^="icon-"], a [class*=" icon-"] {
+    display: inline-block;
+    text-decoration: inherit;
+}
+
+.icon-large:before {
+    vertical-align: top;
+    font-size: 1.3333333333333333em;
+}
+
+.btn [class^="icon-"], .btn [class*=" icon-"] {
+    line-height: .9em;
+}
+
+li [class^="icon-"], li [class*=" icon-"] {
+    display: inline-block;
+    width: 1.25em;
+    text-align: center;
+}
+
+li .icon-large[class^="icon-"], li .icon-large[class*=" icon-"] {
+    width: 1.875em;
+}
+
+li[class^="icon-"], li[class*=" icon-"] {
+    margin-left: 0;
+    list-style-type: none;
+}
+
+li[class^="icon-"]:before, li[class*=" icon-"]:before {
+    text-indent: -2em;
+    text-align: center;
+}
+
+li[class^="icon-"].icon-large:before, li[class*=" icon-"].icon-large:before {
+    text-indent: -1.3333333333333333em;
+}
+
+.icon-trash:before    { content: "\f014"; }
+.icon-pencil:before   { content: "\f040"; }
+.icon-tags:before     { content: "\f02c"; }
+.icon-link:before     { content: "\f0c1"; }
+.icon-signout:before  { content: "\f08b"; }
+
+/*-------------------- $SELECTIONS -----------------------*/
+
+::-moz-selection {
+    color: #FFF;
+    background: #0069BA;
+}
+  
+::selection {
+    color: #FFF;
+    background: #0069BA;
+}
+
+/*-------------------- $ROOT -----------------------------*/
+
+html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    font-size: 100%;
+    background: whiteSmoke;
+    overflow-y: scroll;
+    color: #222;
+}
+
+body, input, textarea {
+    font: 1em/1.62 'PT Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+}
+
+header {
+    overflow: hidden;
+    background: whiteSmoke;
+    padding: .81em .81em .81em .81em;
+}
+
+.wrapper {
+    margin: 0 auto;
+    max-width: 700px;
+    background: #FFF;
+}
+
+#main {
+    padding: 1.62em 1.62em .81em 1.62em;  
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    border: 1px solid #DDD;
+}
+
+footer[role="contentinfo"] {
+    clear: both;
+    font-size: .809em;
+    padding-top: 1.62em;
+}
+
+footer p { text-align: center; }
+
+/*-------------------- $LINKS & COLOUR -------------------*/
+
+a {
+    color: #007EDF;
+    text-decoration: none;
+    outline: none;
+}
+
+a:hover {
+    color: #222;
+    border-bottom: 1px solid #007EDF;
+    transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out; 
+    -webkit-transition: all 0.25s ease-in-out;
+    -o-transition: all 0.25s ease-in-out;
+}
+
+/*-------------------- $TYPOGRAPHY -----------------------*/
+
+p {
+    text-align: justify;
+    text-justify: newspaper;
+    -webkit-hyphens: auto;
+    -webkit-hyphenate-character: "\2010";
+    -webkit-hyphenate-limit-after: 1;
+    -webkit-hyphenate-limit-before: 3;
+    -moz-hyphens: auto;
+    hyphens: auto;
+}
+
+b, strong {
+    font-weight: 700;
+    color: #2C2A25;
+}
+
+em, i {
+    font-weight: 400;
+    font-style: italic;
+}
+
+h1 { /*36px - should be 2.25*/
+  font-size: 2.24em;
+  line-height: 40px;
+}
+
+h2 { /*30px*/
+  font-size: 2em;
+  line-height: 40px;
+}
+
+h3 { /*24px*/
+  font-size: 1.5em;
+  line-height: 40px;
+}
+
+h4 {
+    font-size: 18px;
+    line-height: 40px;
+
+}
+
+/*-------------------- $SPACING --------------------------*/
+
+h1,h2,h3,h4,label { margin-bottom: .6067em; }
+
+ul,ol,dd,p,figure,pre,article,
+input,textarea, select, img {
+    margin-bottom: 1.62em;
+}
+
+/*-------------------- $D3 -------------------------------*/
+
+.tooltip {
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    border: 2px solid #DDD;
+    background: #FFF;
+    opacity: 1;
+    color: #000;
+    padding: 10px;
+    width: 300px;
+}
+
+.tooltip p.main {
+    font-size: 15px;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+ 
+.tooltip .name {
+    font-weight: bold;
+}
+
+line.link {
+    fill: none;
+    stroke-width: 1.5px;
+}
+
+svg {
+    display: block;
+    margin: 0 auto;
+}
+
+hr.tooltip-hr {
+    border: 0;
+    height: 1px;
+    background: #333;
+    background-image: -webkit-linear-gradient(left, #CCC, #333, #CCC); 
+    background-image:    -moz-linear-gradient(left, #CCC, #333, #CCC); 
+    background-image:     -ms-linear-gradient(left, #CCC, #333, #CCC); 
+    background-image:      -o-linear-gradient(left, #CCC, #333, #CCC); 
+}
+
+/*-------------------- $LOGO & $NAV ----------------------*/
+
+#logo {
+    display: inline-block;
+    float: left;
+}
+
+nav ul {
+    float: right;
+    margin: 0;
+}
+
+nav li {
+    display: inline-block; 
+    padding-right: .81em;
+}
+
+/*-------------------- $LOGIN ----------------------------*/
+
+#login {
+    max-width: 320px;
+    margin: 0 auto;
+    margin-top: 1.6em;
+    padding: 1.6em;
+    background: #FFF;
+}
+
+#forgot {
+    clear: both;
+    padding-top: .82em;
+    border-top: 1px dashed #ccc;
+}
+
+/*-------------------- $FORMS ----------------------------*/
+
+.left {
+    display: inline-block;
+    margin-right: 95px;
+}
+
+.right {
+    display: inline-block;
+}
+
+.btn {
+    padding: .125em .81em;
+    color: #FFF;
+    font-weight: bold;
+    display: inline-block;
+    -webkit-border-radius: 6px; /* Safari 3-4, iOS 1-3.2, Android 1.6- */
+    -moz-border-radius: 6px;   /* Firefox 1-3.6 */
+    border-radius: 6px; /* Opera 10.5, IE 9, Safari 5, Chrome, Firefox 4, iOS 4, Android 2.1+ */
+}
+
+.add {
+    background: #9C3;
+}
+    .add:hover {
+        color: #FFF;
+        background: #ADD65C;
+        border: none;
+    }
+
+.remove {
+    background: #D63301;
+}
+    .remove:hover {
+        color: #FFF;
+        background: #DA4F47;
+        border: none;
+    }
+
+select {
+    border: solid #CCC 1px;
+    width: 225px;
+    padding: 4px 8px;
+    font-size: 100%;
+}
+
+input[type=text], input[type=password],
+input[type=button] {
+    text-indent: 2%;
+    padding: .1125em 2.5%;
+    background: white;
+    border: solid #CCC 1px;
+    width: 95%;
+}
+
+select:hover,
+input:hover, textarea:hover,
+input:focus, textarea:focus { 
+    border-color: #007EDF; 
+}
+
+input[type=submit] {
+    color: #FFF;
+    font-weight: bold;
+    background: #9C3;
+    padding: .154em 2.5%;
+    border: 1px solid #9C3;
+    -webkit-appearance: button; 
+    cursor: pointer;
+    -webkit-border-radius: 6px; /* Safari 3-4, iOS 1-3.2, Android 1.6- */
+    -moz-border-radius: 6px;   /* Firefox 1-3.6 */
+    border-radius: 6px; /* Opera 10.5, IE 9, Safari 5, Chrome, Firefox 4, iOS 4, Android 2.1+ */
+}
+
+input[type=submit]:hover,
+input[type=submit]:focus {
+    background: #ADD65C;
+} 
+
+/*-------------------- $EXTRAS ----------------------------*/
+
+.border {
+    border: solid #CCC 1px;
+    -webkit-border-radius: 12px; /* Safari 3-4, iOS 1-3.2, Android 1.6- */
+    -moz-border-radius: 12px;   /* Firefox 1-3.6 */
+    border-radius: 12px; /* Opera 10.5, IE 9, Safari 5, Chrome, Firefox 4, iOS 4, Android 2.1+ */
+}
+
+hr {
+    margin-top: -1em;
+    margin-bottom: .81em;
+    border: solid #CCC 1px;
+}
+
+::-webkit-input-placeholder { font-style: italic; }
+::-moz-placeholder { font-style: italic; } /* firefox 19+ */
+:-ms-input-placeholder { font-style: italic; } /* ie */
+input:-moz-placeholder { font-style: italic; }
+
+#thumbnails li {
+    padding: .25em;
+    display: inline;
+
+}
+
+/*-------------------- $ADMIN -------------------*/
+
+.title, .crud {
+    display: inline;
+    margin: 0;
+}
+
+.crud { float: right; }
+
+.crud > li  {
+    display: inline;
+    padding: 0 0 0 .75em;
+    list-style-type: none;
+    text-align: right;
+    font-size: 1.375em;
+}
+
+.crud > li:hover {border: none;}
+/*-------------------- $IMAGES ---------------------------*/
+
+img {
+    -ms-interpolation-mode: bicubic; /*I.E. TWEAK*/
+}
+
+/*-------------------- $PRINT ----------------------------*/
+
+/*-------------------- $MEDIA QUERIES --------------------*/
+
+@media only screen and (max-device-width: 480px) {
+    
+}
+
+@media only screen and (min-width: 1224px) {
+/* Styles */
+}
