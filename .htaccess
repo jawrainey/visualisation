@@ -1,0 +1,13 @@
+RewriteEngine On
+
+# Disable rewriting for existing files or directories
+RewriteCond %{REQUEST_URI} !^/public/.*
+#Skip all files, directories and l[something],
+#as well as all files in our public folder...
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-l
+
+#Redirect to our front web controller
+#L indicates that no further re-write rules are to be processed
+RewriteRule ^(.*)$ index.php?uri=$1 [L,QSA]

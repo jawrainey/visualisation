@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://localhost/vis/';
+$config['base_url']	= 'http://localhost/viz/';
 
 /*
 |--------------------------------------------------------------------------

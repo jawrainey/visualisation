@@ -1,4 +1,5 @@
-<?php
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+
 /**
 * Obtain the most re-tweeted tweet from a given dataset.
 */
@@ -152,3 +153,6 @@ class Retweet
     }
 
 }
+
+/* End of file retweet.php */
+/* Location: ./application/controllers/retweet.php */
