@@ -1,9 +1,9 @@
 //Enables the content from the left multiple option box to be moved into the right ~ user friendly.
 $().ready(function() {
     $('.add').click(function() {  
-      return !$('#left option:selected').remove().appendTo('#right');  
+      return !$('#toSelect option:selected').remove().appendTo('#selectedAtts');  
     });  
     $('.remove').click(function() {  
-      return !$('#right option:selected').remove().appendTo('#left');  
-    });  
+      return !$('#selectedAtts option:selected').remove().appendTo('#toSelect');  
+    });
 });

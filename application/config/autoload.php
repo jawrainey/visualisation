@@ -64,7 +64,8 @@ $autoload['libraries'] = array('database','session');
 |	$autoload['helper'] = array('url', 'file');
 */
 
-$autoload['helper'] = array();
+//Can now write 'echo base_url();' instead of 'echo this->config->base_url();'
+$autoload['helper'] = array('url');
 
 
 /*

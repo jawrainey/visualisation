@@ -8,23 +8,19 @@ class Auth extends CI_Controller
 	function __construct()
 	{
         parent::__construct();
+		$this->load->helper(array('form', 'url'));
+		$this->load->library('form_validation');
+		$this->load->model('auth_model');
+
+		$this->form_validation->set_error_delimiters('<div class="error">', '</div>');
     }
     
 	public function index()
 	{
 		$this->load->view('home/index');
-	}
-
-	public function login()
-	{
-		$this->load->view('home/index');
-	}
-
-	public function process()
-	{
 
 	}
-	
+
 	public function change_password()
 	{
 
@@ -40,6 +36,11 @@ class Auth extends CI_Controller
 	{
 
 
+	}
+
+	public function logout()
+	{
+		
 	}
 
 }
