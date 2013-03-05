@@ -136,13 +136,18 @@ class Retweet
      * Nodes to map with D3.js
      *
      * @return D3.force network JSON type compatable array
-     */   
+    */   
     public function nodes()
     {
 
     }
     
-    public function links()
+    /**
+     *  Edges from origin to city, and city to retweet
+     *
+     * @return D3.force network JSON type compatable array
+    */   
+    public function edges()
     {
 
     }

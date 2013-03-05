@@ -1,7 +1,21 @@
         <article>
-          <p><b>STAGE THREE</b></p>
-          <h1>Visualistion of {insert user's visualistion name}</h1> 
-          <div id="rain">
+          <h1>Visualistion of <?= $title; ?></h1>
+          <p>Below are the types of graphs available for the chosen attributes</p>
+          <?php if (empty($recommendations)): ?>
+            <p>NO VISUALISATION EXISTS FOR THOSE CHOSEN DATA TYPES!!</p>   
+          <?php else: ?>
+            <ul>
+            <?php foreach ($recommendations as $recommendation): ?>
+              <li><?= $recommendation; ?></li>
+            <?php endforeach; ?>
+            </ul>
+          <?php endif; ?>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <div id="main_vis">
             <p>If no visualistions can be made from the data, output an error? We're sorry, but those visualisations are not compatable...</p>
             <p>Perhaps if the datatypes chosen CAN NOT make a visualistion, then say to the user, then take them back to the previous page?</p>
             <p>On this page IF the user is advanced it will simply display a dropdown box to allow them to select the visualistion...</p>

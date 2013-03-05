@@ -12,7 +12,7 @@
 <body>
   <div class="wrapper">
     <header role="banner">
-      <div id="logo"><a href="#">G7</a></div>
+      <div id="logo"><a href="<?= base_url(); ?>">logo</a></div>
       <nav role="navigation">
         <ul>
           <li><a href="<?= base_url() . 'dashboard/'?>">Dashboard</a></li>
