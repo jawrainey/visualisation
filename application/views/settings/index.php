@@ -13,10 +13,14 @@
           <p><a href="#" class="toggle">Change user type?</a></p>
           <div class="hide">  
             <form>
-              <label for="beginner">Beginner</label>
-              <input type="radio" id="beginner" name="usertype" value="beginner" />
-              <label for="advanced">Advanced</label>
-              <input type="radio" id="advanced" name="usertype" value="advanced" />
+              <div class="left">
+                <label for="beginner">Beginner</label>
+                <input type="radio" id="beginner" name="usertype" value="beginner" />
+              </div>
+              <div class="right">
+                <label for="advanced">Advanced</label>
+                <input type="radio" id="advanced" name="usertype" value="advanced" />
+              </div>
               <input type="submit" name="change" value="Change" />
             </form>
           </div>

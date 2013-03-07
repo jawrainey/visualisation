@@ -130,7 +130,7 @@ class Dashboard_model extends CI_Model
         $query_one = $this->db->select($select_one)->get($data->db_one)->result_array();
         $query_two = $this->db->select($select_two)->get($data->db_two)->result_array();
         //...so... if all attributes are not in both, then just use the ones they're in?
-        return array('title' => array('vis_name' => $data->vis_name), 'vis_data' => array_merge($query_one, $query_two));   
+        return array('title' => array('vis_name' => $data->vis_name), 'vis_data' => $query_one);//'vis_data' => array_merge($query_one, $query_two));   
     }
     
     /**
@@ -152,8 +152,8 @@ class Dashboard_model extends CI_Model
             'bar_chart'  => array('pos_sentiment', 'neg_sentiment'),
             'pie_chart'  => array('gender', 'location', 'pos_sentiment', 'neg_sentiment'),
             'line_chart' => array('pos_sentiment', 'neg_sentiment','location','crimes','officers'),
-            'maps'       => array('lat', 'long', 'location'),
-            'network'    => array('tweet_text', 'timestamp', 'location')
+            'maps'       => array('lat', 'long', 'location', 'pos_sentiment', 'neg_sentiment'),
+            'network_map'    => array('tweet_text', 'timestamp', 'location')
         );
         
         $recommendations  = array();
@@ -168,14 +168,15 @@ class Dashboard_model extends CI_Model
         return $recommendations;
     }
     
+    
     /**
      * Deletes a visualisation
      *
      * @param  string  $uri  Delete visualisation by the given uri
     */
-    public function delete($uri)
+    public function delete($uri, $user_id)
     {
-        return $this->db->delete('user_visualisation', array('uri' => $uri)); 
+        return $this->db->delete('user_visualisation', array('uri' => $uri, 'user_id' => $user_id)); 
     }
 }
 

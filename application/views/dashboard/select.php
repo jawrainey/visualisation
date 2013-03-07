@@ -26,4 +26,3 @@
           </form>
           <p>NOTE TO SELF: If the user is an "advanced" user, then instead of redirecting to another page and doing the recommended visualistion the user is presented with a list of options (the visualistions) to choose from.</p>
         </article>
-      

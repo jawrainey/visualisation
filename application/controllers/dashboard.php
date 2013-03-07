@@ -13,7 +13,7 @@ class Dashboard extends CI_Controller
         $this->load->model('dashboard_model');
         
         //only doing this to see if my query works - still need a damn login system!
-        $this->session->set_userdata(array('user_id' => 1, 'user_type' => 1));
+        $this->session->set_userdata(array('user_id' => 2, 'user_type' => 1));
     }
     
     /**
@@ -109,10 +109,11 @@ class Dashboard extends CI_Controller
     public function delete($uri = FALSE)
     {
         $uri or show_404();
-        $this->dashboard_model->delete($uri);
+        //make userid also delete...
+        $this->dashboard_model->delete($uri, $this->session->userdata('user_id'));
         redirect('dashboard');
     }
-    
+
     /**
      * TODO: Allows the user to upload their own data (in csv or json) to visualise.
     */
