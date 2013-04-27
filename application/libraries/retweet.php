@@ -6,8 +6,7 @@
 class Retweet
 {
     private $db;
-
-    public $nodes;
+    private $nodes;
 
     function __construct($db)
     {
@@ -159,5 +158,5 @@ class Retweet
 
 }
 
-/* End of file retweet.php */
-/* Location: ./application/controllers/retweet.php */
+/* End of file Retweet.php */
+/* Location: ./application/controllers/Retweet.php */

@@ -20,9 +20,9 @@ class MY_Form_validation extends CI_Form_validation
     public function check_visname($visname)
     {
         $this->set_message('check_visname', 'A visualistion with this name exists.');
-        return $this->CI->dashboard_model->check_visname($visname, $this->CI->session->userdata('user_id'));
+        return $this->CI->dashboard_model->check_visname(array('vis_name' => $visname, 'user_id' => $this->CI->session->userdata('user_id')));
     }
-    
+
     /**
      * Prevent user selecting first fields.
      *

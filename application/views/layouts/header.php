@@ -5,7 +5,15 @@
   <title><?= $title; ?> &middot; Group 7</title>
   <script src="<?= base_url() . '/public/js/libs/pack.js' ?>"></script>
   <script src="<?= base_url() . '/public/js/libs/d3.js' ?>"></script>
+  <script src="<?= base_url() . '/public/js/libs/underscore-min.js' ?>"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_XDIuyANwbDmupuR-sFVYSTmiydhiQLE&sensor=false"></script>
+  <script src='https://www.google.com/jsapi?autoload={"modules":[{"name":"visualization","version":"1","packages":["corechart","table"]}]}'></script>
+  <script src="<?= base_url() . '/public/js/gcharts/pieChart.js' ?>"></script>
+  <script src="<?= base_url() . '/public/js/gcharts/lineChart.js' ?>"></script>
+  <script src="<?= base_url() . '/public/js/gcharts/barChart.js' ?>"></script>
+  <script src="<?= base_url() . '/public/js/gcharts/columnChart.js' ?>"></script>
+  <script src="<?= base_url() . '/public/js/gcharts/scatterChart.js' ?>"></script>
+  <script src="<?= base_url() . '/public/js/gcharts/steppedAreaChart.js' ?>"></script>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <link rel="stylesheet" href="<?= base_url(); ?>public/css/styles.css" />
 </head>

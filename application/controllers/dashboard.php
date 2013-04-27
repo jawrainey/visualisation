@@ -3,7 +3,7 @@
 /**
  * Dashboard controller (Let the user visualise things!)
 */
-class Dashboard extends CI_Controller
+class Dashboard extends MY_Controller
 {
     function __construct()
     {
@@ -11,9 +11,6 @@ class Dashboard extends CI_Controller
         $this->load->helper(array('form', 'url'));
         $this->load->library('form_validation');
         $this->load->model('dashboard_model');
-        
-        //only doing this to see if my query works - still need a damn login system!
-        $this->session->set_userdata(array('user_id' => 2, 'user_type' => 1));
     }
     
     /**
@@ -46,11 +43,11 @@ class Dashboard extends CI_Controller
         {
             //Otherwise submit the form
             $content = array(
-                'uri'      => $this->dashboard_model->hyphenate($this->input->post('visname')),
-                'vis_name' => $this->input->post('visname'),
+                'uri'      => $this->dashboard_model->hyphenate($this->input->post('visname', TRUE)),
+                'vis_name' => $this->input->post('visname', TRUE),
                 'user_id'  => $this->session->userdata('user_id'),
-                'db_one'   => $this->input->post('datasetOne') ,
-                'db_two'   => $this->input->post('datasetTwo')
+                'db_one'   => $this->input->post('datasetOne', TRUE),
+                'db_two'   => $this->input->post('datasetTwo', TRUE)
             );
             
             $this->dashboard_model->create_vis($content);
@@ -70,7 +67,7 @@ class Dashboard extends CI_Controller
         
         $data = array(
             'title'   => 'Select attributes',
-            'content' => $this->dashboard_model->set_atts($uri)
+            'content' => $this->dashboard_model->set_atts(array('uri' => $uri, 'user_id' => $this->session->userdata('user_id')))
         );
         
         if($this->form_validation->run('select') == FALSE)
@@ -79,7 +76,10 @@ class Dashboard extends CI_Controller
         }
         else
         {
-            $this->dashboard_model->update_atts($this->input->post('selectedAtts', TRUE), $data['content']['content']['vis_name']);
+            $this->dashboard_model->update_atts(
+                $this->input->post('selectedAtts', TRUE),
+                array( 'vis_name' => $data['content']['content']['vis_name'], 'user_id' => $this->session->userdata('user_id'))
+            );
             redirect('dashboard/view/' . $uri . '/', 'refresh');
         }
     }
@@ -92,12 +92,15 @@ class Dashboard extends CI_Controller
     public function view($uri = FALSE)
     {
         $uri or show_404();
-        $content = $this->dashboard_model->view($uri);
+        $content = $this->dashboard_model->view(array('uri' => $uri, 'user_id' => $this->session->userdata('user_id')));
+        $content or show_404();
+        
         $data = array(
             'title' => $content['title']['vis_name'],
-            'content' => $content['vis_data'],
-            'recommendations' => $this->dashboard_model->recommendation($uri));
-        
+            'content' => json_encode($content['vis_data']),
+            'recommendations' => $this->dashboard_model->recommendation(array('uri' => $uri, 'user_id' => $this->session->userdata('user_id')))
+        );
+
         $this->load->template('dashboard/view', $data);
     }
     
@@ -109,15 +112,9 @@ class Dashboard extends CI_Controller
     public function delete($uri = FALSE)
     {
         $uri or show_404();
-        //make userid also delete...
-        $this->dashboard_model->delete($uri, $this->session->userdata('user_id'));
+        $this->dashboard_model->delete(array('uri' => $uri, 'user_id' => $this->session->userdata('user_id')));
         redirect('dashboard');
     }
-
-    /**
-     * TODO: Allows the user to upload their own data (in csv or json) to visualise.
-    */
-    public function upload() {}
 
 }
 

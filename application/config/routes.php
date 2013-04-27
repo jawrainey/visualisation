@@ -40,9 +40,12 @@
 
 $route['default_controller'] = "auth";
 $route['404_override'] = '';
-$route['admin'] = 'errors/page_missing';
 
+$route['forgot-password'] = "auth/forgot_password";
+$route['reset-password'] = "auth/reset_password";
+$route['reset-password/(:any)'] = 'auth/reset_password/$1';
 
+$route['settings/change-password/'] = 'settings/change_password';
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

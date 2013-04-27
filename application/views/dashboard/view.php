@@ -1,26 +1,33 @@
         <article>
           <h1>Visualistion of <?= $title; ?></h1>
-          <p>Below are the types of graphs available for the chosen attributes</p>
+          <p>Below are the types of graphs available for the chosen attributes:</p>
           <?php if (empty($recommendations)): ?>
-            <p>NO VISUALISATION EXISTS FOR THOSE CHOSEN DATA TYPES!!</p>   
+            <p>No visualisations exist for those chosen data types. Redirecting to dashboard.</p>
+            <?php $this->output->set_header('refresh:3; url=' . base_url() . 'dashboard'); ?> 
           <?php else: ?>
-  <ul>
-            <?php foreach ($recommendations as $recommendation): ?>
-  <li><?= $recommendation; ?></li>
+            <?php foreach ($recommendations as $index => $recommendation): ?>
+            <?php if($index == 0): ?>
+          
+          <script>              
+          <?= $recommendation . "(" . $content . ", " . "'100%', " . "350," . "'main_vis'" . ");" ?>
+
+          </script>
+    <?php else: ?>
+        
+          <script>
+          <?= $recommendation . "(" . $content . ", " . "300, " . "150," . "'thumbnail" . $index . "'" . ");" ?>
+       
+          </script><?php endif; ?>
             <?php endforeach; ?>
-</ul>
           <?php endif; ?>
-<hr>
-          <div id="main_vis">
-<!--             <p>If no visualistions can be made from the data, output an error? We're sorry, but those visualisations are not compatable...</p>
-            <p>Perhaps if the datatypes chosen CAN NOT make a visualistion, then say to the user, then take them back to the previous page?</p>
-            <p>On this page IF the user is advanced it will simply display a dropdown box to allow them to select the visualistion...</p>
-            <p>On the other hand, if they're a noob, the main vis will be here, and UP TO three thumbnails below.</p> -->
-          </div>
-          <p>Click a thumbnail below to view alternative visualistions.</p>
+          
+          <div id="main_vis"></div>
+          <p>Click a thumbnail below to enlarge selected visualistion.</p>
           <ul id="thumbnails">
-            <li><a href="#"><img src="http://donsmaps.com/clickphotos/dolnivi200x100.jpg" width="200" height="100"></img></a></li>
-            <li><a href="#"><img src="http://donsmaps.com/clickphotos/dolnivi200x100.jpg" width="200" height="100"></img></a></li>
-            <li><a href="#"><img src="http://donsmaps.com/clickphotos/dolnivi200x100.jpg" width="200" height="100"></img></a></li>
+<?php foreach ($recommendations as $index => $recommendation): ?>
+<?php if($index != 0): ?>
+            <li><a id="thumbnail<?= $index?>" href="#"></a></li>
+<?php endif; ?>
+<?php endforeach; ?>
           </ul>
         </article>

@@ -306,9 +306,8 @@ nav li {
     margin-right: 95px;
 }
 
-.right {
-    display: inline-block;
-}
+.right { display: inline-block; }
+.fright { float: right; }
 
 .btn {
     padding: .125em .81em;
@@ -405,12 +404,18 @@ input:-moz-placeholder { font-style: italic; }
 
 }
 
+#thumbnail1 div, #thumbnail2 div,
+#thumbnail3 div, #thumbnail4 div {
+    margin: 0;
+    display: inline-table;
+}
 .error {
     background-color: #FFEBE8;
     border: 1px solid #999;
     padding: .809em 0 .809em 2.427em;
     margin: .809em 0;
 }
+
 
 /*-------------------- $ADMIN -------------------*/
 
@@ -439,11 +444,9 @@ img {
 /*-------------------- $PRINT ----------------------------*/
 
 /*-------------------- $MEDIA QUERIES --------------------*/
-
-@media only screen and (max-device-width: 480px) {
+/*@media only screen and (min-width: 30em) {
+    #login { max-width: 400px;}
     
-}
+}*/
 
-@media only screen and (min-width: 1224px) {
-/* Styles */
-}
+/*@media only screen and (min-width: 62em) { body { font-size: 1.125em; } }*/
