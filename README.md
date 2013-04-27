@@ -1,4 +1,4 @@
-#Group 7 - Visualization
+#Group 7 - Visualization of social data
 
 Allows users to visualize data that has been scraped from social networking sites via
 [cosmos](http://www.cs.cf.ac.uk/cosmos/ "cosmos"), and overlayed with government data from [data.gov](http://data.gov.uk/ "data.gov").
@@ -7,11 +7,11 @@ Allows users to visualize data that has been scraped from social networking site
 
 ##PHP
 - [Codeigniter](http://ellislab.com/codeigniter "Codeigniter")
-- [ion auth](http://benedmunds.com/ion_auth/ "ion auth")
+- [Ion auth](http://benedmunds.com/ion_auth/ "ion auth")
 - [Custom retweet class]( "Most retweeted tweet by location")
 
 ##JavaScript
-- [d3.js](http://d3js.org/ "d3.js")
-- [Google visualisations](https://developers.google.com/chart/ "Google visualisations").
+- [D3.js](http://d3js.org/ "d3.js")
+- [Google visualisations](https://developers.google.com/chart/ "Google visualisations")
 - [Underscore.js](http://underscorejs.org/ "Underscore.js")
 - [Jquery](http://jquery.com/ "jquery")
