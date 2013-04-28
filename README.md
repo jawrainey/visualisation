@@ -1,4 +1,4 @@
-#Group 7 - Visualization of social data
+#Group 7 - Visualization of social networking data
 
 Allows users to visualize data that has been scraped from social networking sites via
 [cosmos](http://www.cs.cf.ac.uk/cosmos/ "cosmos"), and overlayed with government data from [data.gov](http://data.gov.uk/ "data.gov").
