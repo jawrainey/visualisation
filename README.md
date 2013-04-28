@@ -8,7 +8,7 @@ Allows users to visualize data that has been scraped from social networking site
 ##PHP
 - [Codeigniter](http://ellislab.com/codeigniter "Codeigniter")
 - [Ion auth](http://benedmunds.com/ion_auth/ "ion auth")
-- [Custom retweet class]( "Most retweeted tweet by location")
+- [Custom retweet class](https://github.com/jawrainey/visualisation/blob/master/application/libraries/retweet.php "Most retweeted tweet by location")
 
 ##JavaScript
 - [D3.js](http://d3js.org/ "d3.js")
