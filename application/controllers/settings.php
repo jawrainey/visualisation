@@ -29,12 +29,6 @@ class Settings extends MY_Controller
     {
     
     }
-
-
-    public function change_password()
-    {
-        echo 1;
-    }
     
 }
 

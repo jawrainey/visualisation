@@ -14,4 +14,4 @@ Allows users to visualize data that has been scraped from social networking site
 - [D3.js](http://d3js.org/ "d3.js")
 - [Google visualisations](https://developers.google.com/chart/ "Google visualisations")
 - [Underscore.js](http://underscorejs.org/ "Underscore.js")
-- [Jquery](http://jquery.com/ "jquery")
+- [jQuery](http://jquery.com/ "jQuery")
