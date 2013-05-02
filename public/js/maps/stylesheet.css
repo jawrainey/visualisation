@@ -1,0 +1,44 @@
+html { 
+height: 100%; 
+}
+body { 
+height: 100%; 
+margin: 0; 
+padding: 0; 
+}
+#map_canvas { 
+
+box-shadow: 20px 20px 10px #767676;
+margin: 2% 0% 10% 12%;
+border: 50px solid lightgrey;
+border-radius: 100px;
+}
+
+h1
+{
+font-family: 'Quintessential', cursive;
+}
+
+#control
+{
+text-align:center;
+color: grey;
+background-color: lightgrey;
+}
+
+#plot
+{
+font-family: 'Quintessential', cursive;
+width: 20%;
+height: 20%;
+border-radius: 100px;
+color: grey;
+font-weight:bold
+}
+
+#plot:hover 
+{
+background-color: lightblue; 
+color: white;
+}
+
