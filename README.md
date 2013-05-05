@@ -3,7 +3,7 @@
 >A 2nd year computer science project at Cardiff University.
 
 Allows users to visualize data that has been scraped from social networking sites via
-[cosmos](http://www.cs.cf.ac.uk/cosmos/ "cosmos"), and overlayed with government data from [data.gov](http://data.gov.uk/ "data.gov").
+[cosmos](http://www.cs.cf.ac.uk/cosmos/ "cosmos").
 
 #Libraries used:
 
